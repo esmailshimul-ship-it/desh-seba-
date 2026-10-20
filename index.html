@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>দেশ সেবা | Desh Sheba</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #f4f7f6; margin: 0; padding: 15px; color: #333; }
+        .header { text-align: center; background: #006a4e; color: white; padding: 20px; border-radius: 12px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
+        .card { background: white; border-radius: 12px; padding: 15px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-decoration: none; color: #333; display: block; cursor: pointer; }
+        .card:active { transform: scale(0.98); background: #eef5f2; }
+        .legal { border-left: 5px solid #d9534f; }
+        .emergency { border-left: 5px solid #f0ad4e; }
+        
+        /* লিগ্যাল গাইড পপ-আপ পেজ */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); overflow-y: auto; padding: 10px; box-sizing: border-box; }
+        .modal-content { background: white; margin: 20px auto; padding: 20px; border-radius: 12px; max-width: 600px; line-height: 1.6; }
+        .close-btn { background: #d9534f; color: white; border: none; padding: 8px 16px; border-radius: 6px; float: right; font-weight: bold; cursor: pointer; }
+        .call-btn { display: inline-block; background: #006a4e; color: white; text-decoration: none; padding: 10px 15px; border-radius: 8px; font-weight: bold; margin-top: 10px; }
+        h2, h3 { color: #006a4e; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>🇧🇩 দেশ সেবা</h1>
+        <p>Desh Sheba — আপনার আইনি ও জরুরি সুরক্ষাকবচ</p>
+    </div>
+
+    <div class="grid">
+        <!-- ১. জরুরি সেবা -->
+        <a href="tel:999" class="card emergency">
+            <h2>🚨</h2>
+            <h3>জরুরি সেবা<br><small>Emergency Services</small></h3>
+            <p>৯৯৯ কল ও তাৎক্ষণিক সাহায্য</p>
+        </a>
+
+        <!-- ২. আইনি সহায়তা -->
+        <div class="card legal" onclick="openLegalModal()">
+            <h2>⚖️</h2>
+            <h3>আইনি সহায়তা<br><small>Legal Aid & Defense</small></h3>
+            <p>মিথ্যা মামলা প্রতিরোধ ও ১৬৪৩০</p>
+        </div>
+
+        <!-- ৩. সাইবার সুরক্ষা -->
+        <div class="card" onclick="alert('🛡️ সাইবার ও হ্যাকিং সুরক্ষা গাইড শীঘ্রই যুক্ত হচ্ছে!')">
+            <h2>🛡️</h2>
+            <h3>সাইবার সুরক্ষা<br><small>Cyber Security</small></h3>
+            <p>বিকাশ/ফেসবুক হ্যাক প্রতিরোধ</p>
+        </div>
+
+        <!-- ৪. জুয়া প্রতিরোধ -->
+        <div class="card" onclick="alert('🚫 অনলাইন জুয়া প্রতিরোধ ও গোপন রিপোর্ট শীঘ্রই আসছে!')">
+            <h2>🚫</h2>
+            <h3>জুয়া প্রতিরোধ<br><small>Anti-Gambling</small></h3>
+            <p>অনলাইন জুয়ার গোপন রিপোর্ট</p>
+        </div>
+
+        <!-- ৫. কৃষি ও বাজার -->
+        <div class="card" onclick="alert('🌾 কৃষি সমাধান ও আজকের বাজার দর শীঘ্রই যুক্ত হবে!')">
+            <h2>🌾</h2>
+            <h3>কৃষি ও বাজার<br><small>Agri & Market Price</small></h3>
+            <p>রোগ সমাধান ও বাজার দর</p>
+        </div>
+
+        <!-- ৬. স্থানীয় সেবা -->
+        <div class="card" onclick="alert('🚜 স্থানীয় মেকানিক ও গাড়ি ভাড়ার তালিকা আসছে!')">
+            <h2>🚜</h2>
+            <h3>স্থানীয় সেবা<br><small>Local Services</small></h3>
+            <p>মেকানিক ও গাড়ি ভাড়া</p>
+        </div>
+    </div>
+
+    <!-- ⚖️ আইনি সহায়তা পপ-আপ স্ক্রিন -->
+    <div id="legalModal" class="modal">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeLegalModal()">বন্ধ করুন ✖</button>
+            <h2>⚖️ আইনি সহায়তা ও মিথ্যা মামলা সুরক্ষা</h2>
+            <hr>
+            
+            <h3>১. 🚨 মিথ্যা মামলায় নাম আসলে প্রথম করণীয়</h3>
+            <ul>
+                <li><strong>আতঙ্কিত হবেন না:</strong> অযথা ভয় পেয়ে পালিয়ে যাবেন না, এতে পরিস্থিতি জটিল হয়।</li>
+                <li><strong>মামলার তথ্য নিন:</strong> থানা থেকে মামলার নম্বর (FIR), ধারা ও এজাহারের কপি সংগ্রহ করুন।</li>
+                <li><strong>আইনজীবী ধরুন:</strong> তথ্য পাওয়ার পর ফৌজদারি আইনজীবীর সাথে কথা বলুন।</li>
+            </ul>
+
+            <h3>২. 📝 নিরপরাধ প্রমাণের তথ্য সংগ্রহ (Alibi)</h3>
+            <ul>
+                <li>ঘটনার সময়ে আপনি যে অন্য স্থানে ছিলেন তার বাস টিকিট, সিসিটিভি ফুটেজ বা কল রেকর্ড নিরাপদে রাখুন।</li>
+                <li>প্রত্যক্ষদর্শী সাক্ষীদের নাম ও মোবাইল নম্বর গুছিয়ে রাখুন।</li>
+            </ul>
+
+            <h3>৩. 🏛️ জামিন ও আগাম জামিন (Bail Guide)</h3>
+            <ul>
+                <li>গ্রেপ্তার এড়াতে হাইকোর্ট থেকে নির্দিষ্ট মেয়াদের <strong>আগাম জামিন</strong> আবেদন করুন।</li>
+                <li>মামলা সম্পূর্ণ ভিত্তিহীন হলে আইনজীবীর মাধ্যমে ধারা ৫৬১এ অনুযায়ী মামলা বাতিলের আবেদন করার সুযোগ থাকে।</li>
+            </ul>
+
+            <h3>৪. 📞 সরকারি বিনামূল্যে আইনি সহায়তা</h3>
+            <p>দরিদ্র বা অসচ্ছলদের জন্য সরকার বিনামূল্যে উকিল ও আইনি পরামর্শ দেয়।</p>
+            <a href="tel:16430" class="call-btn">📞 ১৬৪৩০ নম্বরে ফ্রিতে কল করুন</a>
+
+            <br><br>
+            <h3>৫. 🛡️ পুলিশি হয়রানির বিরুদ্ধে প্রতিকার</h3>
+            <p>অযথা হয়রানি করা হলে জেলা পুলিশ সুপার (SP) বা ডিসি (DC) স্যারের কাছে লিখিত অভিযোগ জমা দেওয়া যায়।</p>
+        </div>
+    </div>
+
+    <script>
+        function openLegalModal() {
+            document.getElementById('legalModal').style.display = 'block';
+        }
+        function closeLegalModal() {
+            document.getElementById('legalModal').style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>
